@@ -9,3 +9,8 @@
 
 - (dashboard) (routes) : All routes for our platform such as : image generation, code generation, video generation, dashboard and settings
 - (landing) : Landing Page route (unprotected)
+
+### 3. Clerk Authentication
+
+- Login on [Clerk Dashboard](https://dashboard.clerk.com/)
+- `</ClerkProvider>` : This makes the active session and user context accessible anywhere within the app.
