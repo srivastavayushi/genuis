@@ -14,3 +14,7 @@
 
 - Login on [Clerk Dashboard](https://dashboard.clerk.com/)
 - `</ClerkProvider>` : This makes the active session and user context accessible anywhere within the app.
+
+### 4. Sidebar
+
+- cn : especially made library which uses tailwind merge and clsx to ensure there is a proper way to additional dynamic classnames to tailwind elements, means its going to override them if they already exist
