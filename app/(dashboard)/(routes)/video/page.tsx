@@ -44,7 +44,7 @@ const VideoPage = () => {
         "/api/video",
         values
       );
-
+      console.log(response);
       setVideo(response.data[0]);
       form.reset();
     } catch (error) {
