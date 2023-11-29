@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import * as z from "zod";
-import { MessageSquare, Music } from "lucide-react";
+import { Music } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -22,15 +22,10 @@ import { useState } from "react";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { cn } from "@/lib/utils";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
 
 const MusicPage = () => {
   const router = useRouter();
-  const [messages, setMessages] = useState<
-    ChatCompletionMessageParam[]
-  >([]);
+  const [music, setMusic] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,25 +40,13 @@ const MusicPage = () => {
     values: z.infer<typeof formSchema>
   ) => {
     try {
-      const userMessage: ChatCompletionMessageParam = {
-        role: "user",
-        content: values.prompt,
-      };
-      const newMessages = [...messages, userMessage];
-
+      setMusic(undefined);
       const response = await axios.post(
-        "/api/conversation",
-        {
-          messages: newMessages,
-        }
+        "/api/music",
+        values
       );
 
-      setMessages((current) => [
-        ...current,
-        userMessage,
-        response.data,
-      ]);
-
+      setMusic(response.data.audio);
       form.reset();
     } catch (error) {
       // TODO : Open Pro modal
@@ -130,10 +113,14 @@ const MusicPage = () => {
               <Loader />
             </div>
           )}
-          {messages.length === 0 && !isLoading && (
+          {!music && !isLoading && (
             <Empty label="No music generated." />
           )}
-          <div>Music will be shown here</div>
+          {music && (
+            <audio controls className="w-full mt-8">
+              <source src={music} />
+            </audio>
+          )}
         </div>
       </div>
     </div>
