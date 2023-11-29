@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import * as z from "zod";
 import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -134,7 +135,7 @@ const CodePage = () => {
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (
               <div
-                key={message.content}
+                key={uuidv4()}
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg",
                   message.role === "user"
