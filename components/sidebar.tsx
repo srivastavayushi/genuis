@@ -15,6 +15,7 @@ import {
   VideoIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { FreeCounter } from "./free-counter";
 
 const montserrat = Montserrat({
   weight: "600",
@@ -64,7 +65,11 @@ const routes = [
     href: "/settings",
   },
 ];
-const Sidebar = () => {
+
+interface SidebarProps {
+  apiLimitCount: number;
+}
+const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
 
   return (
@@ -111,6 +116,7 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
   );
 };

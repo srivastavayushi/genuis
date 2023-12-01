@@ -68,6 +68,8 @@ const CodePage = () => {
       // TODO : Open Pro modal
       console.log(error);
     } finally {
+      // rehydrate all server components fetching newest data
+      // all server components are going to get refetched from database
       router.refresh();
     }
   };
