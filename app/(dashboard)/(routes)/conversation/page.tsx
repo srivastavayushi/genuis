@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { userProModal } from "@/hooks/user-pro-modal";
+import toast from "react-hot-toast";
 
 const ConversationPage = () => {
   const proModal = userProModal();
@@ -72,6 +73,8 @@ const ConversationPage = () => {
       // TODO : Open Pro modal
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
       console.log(error);
     } finally {

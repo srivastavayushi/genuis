@@ -1,5 +1,6 @@
 "use client";
 
+import toast from "react-hot-toast";
 import { userProModal } from "@/hooks/user-pro-modal";
 import {
   Dialog,
@@ -73,6 +74,7 @@ export const ProModal = () => {
       const response = axios.get("/api/stripe");
       window.location.href = (await response).data.url;
     } catch (error) {
+      toast.error("Something went wrong");
       console.log(error, "STRIPE_CLIENT_ERROR");
     } finally {
       setLoading(false);
@@ -129,6 +131,7 @@ export const ProModal = () => {
             variant="premium"
             className="w-full"
             onClick={onSubscribe}
+            disabled={loading}
           >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />

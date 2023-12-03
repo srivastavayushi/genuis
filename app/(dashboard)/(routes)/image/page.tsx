@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import { userProModal } from "@/hooks/user-pro-modal";
+import toast from "react-hot-toast";
 
 const ImagePage = () => {
   const proModal = userProModal();
@@ -75,6 +76,8 @@ const ImagePage = () => {
       // TODO : Open Pro modal
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
       console.log(error);
     } finally {

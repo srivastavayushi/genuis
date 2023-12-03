@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import toast from "react-hot-toast";
 import * as z from "zod";
 import { VideoIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -53,6 +54,8 @@ const VideoPage = () => {
       // TODO : Open Pro modal
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
       console.log(error);
     } finally {

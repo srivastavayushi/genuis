@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import toast from "react-hot-toast";
 import { useState } from "react";
 import { Zap } from "lucide-react";
 
@@ -21,6 +22,7 @@ export const SubscriptionButton = ({
 
       window.location.href = response.data.url;
     } catch (error) {
+      toast.error("Something went wrong");
       console.log("BILLING_ERROR", error);
     } finally {
       setLoading(false);
