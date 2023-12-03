@@ -1,4 +1,4 @@
-# Genius : AI-Powered Saas ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=genuis-zeta&style=for-the-badge)
+# Genius : AI-Powered Saas
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![License](https://img.shields.io/badge/React.js-v18.2.0-blue.svg)](https://opensource.org/licenses/MIT)
@@ -10,6 +10,8 @@
 [![Stripe](https://img.shields.io/badge/Stripe-API%20v14.17.0-green.svg)](https://stripe.com/)
 
 Genius, a dynamic SaaS application, seamlessly integrates cutting-edge technologies like Next.js, OpenAI, Replicate, Tailwind CSS, Prisma, and Stripe. Designed with a user-centric approach, Genius empowers users with AI-driven services, offering a free tier with 5 accesses and a pro plan for expanded usage. The integrated Stripe API ensures secure and efficient payment processing for a seamless experience. Elevate your projects with Genius and unlock the full potential of artificial intelligence.
+
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=genuis-zeta&style=for-the-badge)
 
 ### AI services offered :
 
