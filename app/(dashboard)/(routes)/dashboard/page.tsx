@@ -49,6 +49,7 @@ const tools = [
     href: "/code",
   },
 ];
+
 export default function DashboardPage() {
   const router = useRouter();
 
